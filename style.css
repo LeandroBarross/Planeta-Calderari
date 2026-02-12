@@ -1097,3 +1097,115 @@ footer {
     }
 }
 
+
+
+/* Container do Grid */
+.grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Base do Card 3D */
+.tema-card-container {
+    perspective: 1000px;
+    height: 400px; /* Altura fixa para os cards ficarem alinhados */
+}
+
+.card-3d {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.tema-card-container:hover .card-3d {
+    transform: rotateX(180deg);
+}
+
+/* Faces do Card */
+.card-frente, .card-verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Estilo da Frente */
+.card-frente img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.card-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--rosa-claro);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+/* Estilo do Verso (O conteúdo que você enviou) */
+.card-verso {
+    background-color: #f9f9f9;
+    transform: rotateX(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+}
+
+.card__title {
+    font-size: 1.8rem;
+    color: var(--rosa-claro);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.card__description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+/* Botão adaptado para o verso */
+.btn-solicitar-3d {
+    background-color: var(--verde-whatsapp);
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-solicitar-3d:hover {
+    background-color: var(--verde-whatsapp-hover);
+    transform: scale(1.05);
+}
+
+.icon-click {
+    margin-left: 8px;
+    font-size: 0.85rem;
+    animation: click-alert 2s infinite;
+}
+
+@keyframes click-alert {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+}
