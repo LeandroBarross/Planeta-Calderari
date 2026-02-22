@@ -1146,14 +1146,22 @@ footer {
 
 .card-badge {
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
     background: var(--rosa-claro);
     color: white;
-    padding: 6px 8px;
+    /* PADRONIZAÇÃO */
+    width: 200px;            /* Largura fixa para todos ficarem iguais */
+    height: 40px;            /* Altura fixa */
+    display: flex;           /* Ativa o Flexbox */
+    align-items: center;     /* Alinha verticalmente no centro */
+    justify-content: center;  /* Alinha horizontalmente no centro */
+    gap: 10px;               /* Espaço entre o texto e a seta */
     border-radius: 50px;
     font-weight: bold;
+    white-space: nowrap;     /* Impede que o texto quebre linha */
+    box-sizing: border-box;
 }
 
 /* Estilo do Verso (O conteúdo que você enviou) */
