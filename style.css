@@ -641,6 +641,54 @@ footer {
   }
 }
 
+/* Estilo unificado para o menu de segundo nível */
+.inner-submenu {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.3); /* Ajuste para a cor de fundo do seu menu principal */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.inner-submenu.active {
+    display: block;
+}
+
+/* Estilo do botão de categoria pai (harmoniza com os links do menu) */
+.toggle-inner-submenu {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 15px 20px; /* Ajuste o padding para bater com seus links <li><a> */
+    font-size: 18px;
+    font-family: inherit; /* Garante que usa a mesma fonte do menu */
+    color: #ffffff; /* Use a mesma cor de texto dos seus links */
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.toggle-inner-submenu:hover {
+    background-color: #ffdada; /* Efeito de hover igual ao restante do menu */
+}
+
+/* Garante que os links dentro do submenu tenham o mesmo estilo dos links normais */
+.inner-submenu li a {
+    display: block;
+    padding: 12px 20px 12px 35px; /* Recuo maior para indicar que é um item filho */
+    text-decoration: none;
+    color: #555;
+    font-size: 15px;
+}
+
+.inner-submenu li a:hover {
+    background-color: #f4f4f4;
+    color: #000;
+}
+
 
 
 

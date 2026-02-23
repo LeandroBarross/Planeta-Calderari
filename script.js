@@ -73,3 +73,15 @@ console.log('Script.js carregado com sucesso!');
             }
         });
     }, { passive: true });
+
+    document.querySelectorAll('.toggle-inner-submenu').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.stopPropagation(); // Impede de fechar o menu pai
+        const submenu = this.nextElementSibling;
+        submenu.classList.toggle('active');
+        
+        // Gira a setinha se quiser um efeito visual
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-rotate-90');
+    });
+});
