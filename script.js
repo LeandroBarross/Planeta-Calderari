@@ -1,6 +1,5 @@
 console.log('Script.js carregado com sucesso!');
 
-document.addEventListener('DOMContentLoaded', () => {
     
     // --- 1. LÓGICA DO MENU HAMBÚRGUER ---
     const menuToggleLabel = document.getElementById('menu-toggle-label');
@@ -46,67 +45,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 3. NOVA LÓGICA DE PAUSA PARA OS SLIDERS (FEEDBACK E OUTROS) ---
-    // Usamos querySelectorAll para garantir que todos os sliders da página funcionem
+    // --- 3. LÓGICA DE PAUSA CORRIGIDA PARA SAFARI ---
     const allSliders = document.querySelectorAll('.slider');
 
     allSliders.forEach(slider => {
-        
-        const playSlider = () => {
-            slider.classList.remove('paused');
-        };
+        const playSlider = () => slider.classList.remove('paused');
+        const pauseSlider = () => slider.classList.add('paused');
 
-        const pauseSlider = () => {
-            slider.classList.add('paused');
-        };
-
-        // Pausa quando o rato entra (Desktop)
+        // Desktop
         slider.addEventListener('mouseenter', pauseSlider);
-        
-        // Retoma quando o rato sai (Desktop)
         slider.addEventListener('mouseleave', playSlider);
 
-        // Pausa no toque (Telemóvel/Tablet)
+        // Mobile (Safari/Chrome)
         slider.addEventListener('touchstart', (e) => {
+            // Remove a pausa de outros sliders antes de pausar este
+            allSliders.forEach(s => s.classList.remove('paused'));
             pauseSlider();
         }, { passive: true });
-
-        // Retoma após o toque (com um delay de 3 segundos para leitura)
-        slider.addEventListener('touchend', () => {
-            setTimeout(playSlider, 3000);
-        }, { passive: true });
     });
 
-    // --- 4. LÓGICA DO CARROSSEL DE BOLINHAS (INDICADORES) ---
-    montarBolinhas();
-});
-
-function montarBolinhas() {
-    const carrosseis = document.querySelectorAll('.carousel-container');
-    
-    carrosseis.forEach(container => {
-        const track = container.querySelector('.carousel-track');
-        const indicatorsContainer = container.querySelector('.carousel-indicators');
-        const items = container.querySelectorAll('.carousel-item');
-
-        if (track && indicatorsContainer && items.length > 0 && indicatorsContainer.children.length === 0) {
-            
-            items.forEach((_, i) => {
-                const dot = document.createElement('div');
-                dot.classList.add('indicator');
-                if (i === 0) dot.classList.add('active');
-                indicatorsContainer.appendChild(dot);
-            });
-
-            const dots = indicatorsContainer.querySelectorAll('.indicator');
-            track.addEventListener('scroll', () => {
-                const index = Math.round(track.scrollLeft / track.offsetWidth);
-                dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-            });
-        }
-    });
-}
-
-// Garante que as bolinhas funcionem mesmo se o carregamento for lento
-window.addEventListener('load', montarBolinhas);
-
+    // CORREÇÃO SAFARI: Clicar em qualquer lugar da tela retoma a animação
+    document.addEventListener('touchstart', (e) => {
+        allSliders.forEach(slider => {
+            // Se o toque NÃO for dentro de um slider, ele volta a girar
+            if (!slider.contains(e.target)) {
+                slider.classList.remove('paused');
+            }
+        });
+    }, { passive: true });

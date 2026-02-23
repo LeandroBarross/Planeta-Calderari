@@ -707,9 +707,7 @@ footer {
 @media (hover: hover) {
     .slider:hover .item {
         animation-play-state: paused !important;
-    }
-    .slider .item:hover {
-        transform: scale(1.05);
+        -webkit-animation-play-state: paused !important;
     }
 }
 
@@ -725,10 +723,10 @@ footer {
   }
 
 /* No seu style.css, localize ou adicione: */
-.slider.paused .item, 
+.slider.paused .item,
 .slider.paused {
     animation-play-state: paused !important;
-    -webkit-animation-play-state: paused !important; /* Prefixo para Safari antigo */
+    -webkit-animation-play-state: paused !important;
 }
 
 /* Animação padrão */
