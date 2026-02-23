@@ -661,7 +661,7 @@ footer {
     background: none;
     border: none;
     padding: 15px 15px; /* Ajuste o padding para bater com seus links <li><a> */
-    font-size: 16px;
+    font-size: 13px;
     font-family: inherit; /* Garante que usa a mesma fonte do menu */
     color: #ffffff; /* Use a mesma cor de texto dos seus links */
     cursor: pointer;
