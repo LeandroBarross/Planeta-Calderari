@@ -641,55 +641,67 @@ footer {
   }
 }
 
-/* Estilo unificado para o menu de segundo nível */
+/* 1. Botão da Categoria Pai (Ex: Festas Infantis) */
+.toggle-inner-submenu {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #ffffff; /* Cor branca para o texto */
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.toggle-inner-submenu:hover {
+    background-color: #ffd8d8; /* Rosa claro no hover */
+    color: #333; /* Texto escuro para contraste no hover */
+}
+
+/* 2. Container do Submenu Interno */
 .inner-submenu {
     display: none;
-    background-color: rgba(0, 0, 0, 0.3); /* Ajuste para a cor de fundo do seu menu principal */
     list-style: none;
     padding: 0;
     margin: 0;
+    background-color: #1616166e; /* Fundo escuro semitransparente */
 }
 
 .inner-submenu.active {
     display: block;
 }
 
-/* Estilo do botão de categoria pai (harmoniza com os links do menu) */
-.toggle-inner-submenu {
-    width: 100%;
-    text-align: left;
-    background: none;
-    border: none;
-    padding: 15px 15px; /* Ajuste o padding para bater com seus links <li><a> */
-    font-size: 13px;
-    font-family: inherit; /* Garante que usa a mesma fonte do menu */
-    color: #ffffff; /* Use a mesma cor de texto dos seus links */
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background 0.3s;
-}
-
-.toggle-inner-submenu:hover {
-    background-color: #ffdada; /* Efeito de hover igual ao restante do menu */
-}
-
-/* Garante que os links dentro do submenu tenham o mesmo estilo dos links normais */
+/* 3. ESTILO DOS TEMAS (O que você não estava conseguindo alterar) */
 .inner-submenu li a {
+    color: #ffffff !important;    /* Cor do texto dos temas */
+    font-size: 14px !important;   /* Tamanho da letra dos temas */
+    padding: 10px 15px 10px 40px; /* O 40px cria o recuo à esquerda (escadinha) */
     display: block;
-    padding: 12px 20px 12px 35px; /* Recuo maior para indicar que é um item filho */
     text-decoration: none;
-    color: #555;
-    font-size: 15px;
+    transition: background 0.3s ease;
 }
 
+/* Efeito de hover nos links dos temas */
 .inner-submenu li a:hover {
-    background-color: #f4f4f4;
-    color: #000;
+    background-color: #ffd8d8;    /* Fundo rosa no hover */
+    color: #333 !important;       /* Texto escuro no hover */
 }
 
+/* 4. Ícone da setinha */
+.toggle-inner-submenu i {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+    color: #ffffff;
+}
 
+.toggle-inner-submenu i.fa-rotate-90 {
+    transform: rotate(90deg);
+}
 
 
 
