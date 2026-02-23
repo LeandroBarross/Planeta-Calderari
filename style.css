@@ -454,10 +454,10 @@ footer {
 
 .submenu {
     list-style: none;
-    padding-left: 0;
+    padding-left: 15%;
     margin: 0;
     max-height: 0;
-    overflow: hidden;
+    overflow: auto;
     visibility: hidden;
     transition: max-height 0.5s ease-in-out;
     width: 100%;
@@ -465,7 +465,7 @@ footer {
 }
 
 .submenu.is-open {
-    max-height: 2000px;
+    max-height: 5000px;
     visibility: visible;
 }
 
@@ -475,7 +475,7 @@ footer {
     padding-left: 40px;
     font-size: 1rem;
     font-weight: 400;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(237, 206, 206, 0.05);
 }
 
 .submenu li a:hover {
