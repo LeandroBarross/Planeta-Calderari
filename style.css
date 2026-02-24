@@ -206,14 +206,14 @@ section h2 {
   display: inline-block;
   background-color: #25d366;/* Verde do botão da imagem 2 */
   color: white;
-  padding: 1px 10px;
-  border-radius: 25px;
+  padding: 1px 2px;
+  border-radius: 40px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border: none;
   cursor: pointer;
-  width: 65%; /* Para ocupar a largura do card como na foto */
+  width: 70%; /* Para ocupar a largura do card como na foto */
   margin: 1px auto;
 }
 
