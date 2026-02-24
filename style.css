@@ -213,7 +213,7 @@ section h2 {
   font-size: 1.2rem;
   border: none;
   cursor: pointer;
-  width: 90%; /* Para ocupar a largura do card como na foto */
+  width: 65%; /* Para ocupar a largura do card como na foto */
   margin: 1px auto;
 }
 
