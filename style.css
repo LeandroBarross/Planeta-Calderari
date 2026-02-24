@@ -41,7 +41,6 @@ body {
   background-color: var(--branco);
   color: var(--cinza-escuro);
   line-height: 1.6;
-  scroll-behavior: smooth; /* Rolagem suave para âncoras */
 }
 
 
@@ -911,142 +910,16 @@ footer {
     text-align: center;
 }
 
-/* MOLDURA BRANCA DA IMAGEM */
-.carousel-container {
-    background-color: #ffffff;
-    padding: 10px;           /* Espessura da moldura branca */
-    border-radius: 20px;
-    width: 100%;
-    height: 350px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    
-    /* Distância entre a imagem e o botão */
-    margin-bottom: 25px; 
-}
-
-/* Trilho das fotos */
-.carousel-track {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; /* Scroll suave no iPhone */
-}
-
-/* Esconder barra de scroll */
-.carousel-track::-webkit-scrollbar {
-    display: none;
-}
-
-.carousel-item {
-    min-width: 100%;
-    height: 100%;
-    scroll-snap-align: start;
-}
-
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Altere de cover para contain */
-    background-color: #fff; /* Fundo branco para as áreas que sobrarem */
-}
-
-/* Bolinhas indicadoras sobre a foto */
-.carousel-indicators {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 6px 12px;
-    border-radius: 20px;
-    z-index: 5;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.dot.active {
-    background: #ffffff;
-    transform: scale(1.2);
-}
 
 
 
 
-/* Container que permite o deslize */
-.carousel-track {
-    display: flex;
-    overflow-x: auto; /* Permite scroll */
-    scroll-snap-type: x mandatory; /* Faz a foto "grudar" no centro */
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; /* Scroll suave no iPhone */
-}
 
-/* Remove a barra de rolagem visualmente */
-.carousel-track::-webkit-scrollbar {
-    display: none;
-}
 
 .carousel-item {
     min-width: 100%; /* Cada foto ocupa a tela toda do container */
     scroll-snap-align: start; /* Onde a foto deve travar */
 }
-
-
-/* Container das bolinhas - SEMPRE dentro da foto */
-.carousel-indicators {
-    position: absolute;    /* Garante que flutuem sobre a imagem */
-    bottom: 15px;          /* Distância da borda inferior da foto */
-    left: 50%;             /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Ajuste preciso do centro */
-    display: flex;
-    gap: 8px;
-    z-index: 10;           /* Fica à frente da imagem */
-    background: rgb(255, 255, 255); /* Fundo subtil para visibilidade no mobile */
-    padding: 5px 10px;
-    border-radius: 20px;
-}
-
-.indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #fdf1f1;
-    transition: background-color 0.3s;
-    cursor: pointer;
-}
-
-.indicator.active {
-    background-color: var(--rosa-claro); /* Fica rosa quando ativa */
-    transform: scale(1.2);
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    background: #000000;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.dot.active {
-    background: #000000; /* Cor rosa que você usa */
-    transform: scale(1.2);
-}
-
 
 
 
@@ -1276,4 +1149,21 @@ footer {
     0% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(1.2); }
     100% { opacity: 1; transform: scale(1); }
+}
+
+
+/* A página começa invisível */
+body {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Quando a classe 'fade-in' for adicionada via JS, ela aparece */
+body.fade-in {
+    opacity: 1;
+}
+
+/* Classe opcional para quando o usuário clicar em um link */
+body.fade-out {
+    opacity: 0;
 }

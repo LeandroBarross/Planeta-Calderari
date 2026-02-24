@@ -85,3 +85,27 @@ console.log('Script.js carregado com sucesso!');
         icon.classList.toggle('fa-rotate-90');
     });
 });
+
+
+// Assim que a página carrega, a gente adiciona a classe de visibilidade
+window.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('fade-in');
+});
+
+// Captura todos os links para fazer o "sumiço" antes de trocar de página
+document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', e => {
+        // Verifica se é um link interno (não queremos travar links externos ou âncoras #)
+        if (link.hostname === window.location.hostname && !link.hash) {
+            e.preventDefault(); // Trava o clique por um segundo
+            const destination = link.href;
+
+            document.body.classList.add('fade-out'); // Faz o fade-out
+
+            // Espera a animação de 0.5s acabar antes de mudar de página
+            setTimeout(() => {
+                window.location.href = destination;
+            }, 500);
+        }
+    });
+});
