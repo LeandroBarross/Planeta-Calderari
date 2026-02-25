@@ -105,7 +105,13 @@ document.querySelectorAll('a').forEach(link => {
             // Espera a animação de 0.5s acabar antes de mudar de página
             setTimeout(() => {
                 window.location.href = destination;
-            }, 500);
+            }, 300);
         }
     });
+});
+
+// Esse código faz a página aparecer suavemente assim que carrega
+window.addEventListener('DOMContentLoaded', () => {
+    document.body.style.opacity = "1"; // Garante que ela fique visível
+    document.body.classList.add('fade-in');
 });
