@@ -105,7 +105,7 @@ document.querySelectorAll('a').forEach(link => {
             // Espera a animação de 0.5s acabar antes de mudar de página
             setTimeout(() => {
                 window.location.href = destination;
-            }, 300);
+            }, 500);
         }
     });
 });
